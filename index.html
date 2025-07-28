@@ -113,10 +113,10 @@
     </nav>
   </header>
   <div class="container">
-    <input type="text" class="search-bar" placeholder="Search products..." />
+    <input type="text" id="searchInput" class="search-bar" placeholder="Search products..." />
 
     <div class="filters">
-      <select class="filter-select">
+      <select class="filter-select" id="nicheFilter">
         <option disabled selected>Niche</option>
         <option>Tech</option>
         <option>Beauty</option>
@@ -134,7 +134,7 @@
         <option>Tools</option>
         <option>Office</option>
       </select>
-      <select class="filter-select">
+      <select class="filter-select" id="regionFilter">
         <option disabled selected>Region</option>
         <option>Global</option>
         <option>United States</option>
@@ -146,7 +146,7 @@
         <option>Africa</option>
         <option>South America</option>
       </select>
-      <select class="filter-select">
+      <select class="filter-select" id="trendFilter">
         <option disabled selected>Trend Speed</option>
         <option>Exploding</option>
         <option>Fast</option>
@@ -154,7 +154,7 @@
         <option>Slow</option>
         <option>Stable</option>
       </select>
-      <select class="filter-select">
+      <select class="filter-select" id="sortFilter">
         <option disabled selected>Sort</option>
         <option>Newest First</option>
         <option>Oldest First</option>
@@ -164,26 +164,54 @@
       </select>
     </div>
 
-    <div class="product-grid">
-      <div class="product-card">
+    <div class="product-grid" id="productGrid">
+      <div class="product-card" data-niche="Tech">
         <img src="https://via.placeholder.com/300x200" alt="Product" />
         <div class="stats">Total Sales: 3,245 | Sellers: 21</div>
         <button class="view-button">View Drop</button>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-niche="Beauty">
         <img src="https://via.placeholder.com/300x200" alt="Product" />
         <div class="stats">Total Sales: 1,942 | Sellers: 14</div>
         <button class="view-button">View Drop</button>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-niche="Home">
         <img src="https://via.placeholder.com/300x200" alt="Product" />
         <div class="stats">Total Sales: 5,873 | Sellers: 36</div>
         <button class="view-button">View Drop</button>
       </div>
     </div>
   </div>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const nicheFilter = document.getElementById("nicheFilter");
+    const productGrid = document.getElementById("productGrid");
+    const productCards = productGrid.querySelectorAll(".product-card");
+
+    function filterProducts() {
+      const keyword = searchInput.value.toLowerCase();
+      const selectedNiche = nicheFilter.value;
+
+      productCards.forEach(card => {
+        const niche = card.dataset.niche;
+        const matchKeyword = card.textContent.toLowerCase().includes(keyword);
+        const matchNiche = selectedNiche === "Niche" || niche === selectedNiche;
+
+        if (matchKeyword && matchNiche) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    searchInput.addEventListener("input", filterProducts);
+    nicheFilter.addEventListener("change", filterProducts);
+  </script>
 </body>
 </html>
+
 
 
 
