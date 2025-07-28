@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neonnest Radar Feed</title>
+  <style>
+    :root {
+      --blue: #1e90ff;
+      --black: #111;
+      --purple: #a855f7;
+      --gray: #222;
+      --light-gray: #2e2e2e;
+      --text-light: #eaeaea;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--black);
+      color: var(--text-light);
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 240px;
+      background-color: var(--gray);
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    }
+
+    .sidebar h2 {
+      color: var(--blue);
+      font-size: 22px;
+      margin-bottom: 30px;
+    }
+
+    .nav-link {
+      display: block;
+      margin-bottom: 15px;
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .nav-link:hover {
+      color: var(--purple);
+    }
+
+    .main {
+      flex: 1;
+      padding: 30px;
+      overflow-y: auto;
+    }
+
+    .section-title {
+      font-size: 24px;
+      color: var(--blue);
+      margin-bottom: 20px;
+    }
+
+    .product-card {
+      background-color: var(--light-gray);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    .product-info {
+      flex: 1;
+    }
+
+    .product-name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .trend-score {
+      font-size: 14px;
+      color: var(--purple);
+    }
+
+    .view-btn {
+      background-color: var(--blue);
+      border: none;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .view-btn:hover {
+      background-color: #0070d1;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Radar</h2>
+    <a class="nav-link" href="#">Radar Feed</a>
+    <a class="nav-link" href="#">Your Drops</a>
+    <a class="nav-link" href="#">Find Suppliers</a>
+    <a class="nav-link" href="#">Settings</a>
+  </div>
+
+  <div class="main">
+    <div class="section-title">Trending Products</div>
+
+    <div class="product-card">
+      <div class="product-info">
+        <div class="product-name">LED Galaxy Projector</div>
+        <div class="trend-score">Hype Score: 92/100</div>
+      </div>
+      <button class="view-btn">View Drop</button>
+    </div>
+
+    <div class="product-card">
+      <div class="product-info">
+        <div class="product-name">Portable Blender</div>
+        <div class="trend-score">Hype Score: 88/100</div>
+      </div>
+      <button class="view-btn">View Drop</button>
+    </div>
+
+    <div class="product-card">
+      <div class="product-info">
+        <div class="product-name">Wireless Earbuds</div>
+        <div class="trend-score">Hype Score: 85/100</div>
+      </div>
+      <button class="view-btn">View Drop</button>
+    </div>
+
+  </div>
+</body>
+</html>
