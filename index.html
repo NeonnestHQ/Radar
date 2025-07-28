@@ -9,14 +9,14 @@
       --blue: #1e90ff;
       --black: #111;
       --purple: #a855f7;
-      --gray: #222;
-      --light-gray: #2e2e2e;
-      --text-light: #eaeaea;
+      --gray: #1a1a1a;
+      --light-gray: #2b2b2b;
+      --text-light: #f0f0f0;
     }
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background-color: var(--black);
       color: var(--text-light);
       display: flex;
@@ -24,51 +24,63 @@
     }
 
     .sidebar {
-      width: 240px;
+      width: 250px;
       background-color: var(--gray);
-      padding: 20px;
-      box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+      padding: 30px 20px;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
     }
 
     .sidebar h2 {
       color: var(--blue);
-      font-size: 22px;
-      margin-bottom: 30px;
+      font-size: 24px;
+      margin-bottom: 40px;
     }
 
     .nav-link {
       display: block;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       color: var(--text-light);
       text-decoration: none;
       font-size: 16px;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background-color 0.2s;
     }
 
     .nav-link:hover {
-      color: var(--purple);
+      background-color: var(--purple);
+      color: white;
     }
 
     .main {
       flex: 1;
-      padding: 30px;
+      padding: 40px;
       overflow-y: auto;
     }
 
     .section-title {
-      font-size: 24px;
+      font-size: 26px;
       color: var(--blue);
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
     .product-card {
       background-color: var(--light-gray);
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 25px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: transform 0.2s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-2px);
     }
 
     .product-info {
@@ -76,9 +88,9 @@
     }
 
     .product-name {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 10px;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
     }
 
     .trend-score {
@@ -90,10 +102,12 @@
       background-color: var(--blue);
       border: none;
       color: white;
-      padding: 10px 16px;
-      border-radius: 8px;
+      padding: 12px 20px;
+      border-radius: 10px;
       cursor: pointer;
       font-size: 14px;
+      font-weight: 500;
+      transition: background-color 0.2s;
     }
 
     .view-btn:hover {
