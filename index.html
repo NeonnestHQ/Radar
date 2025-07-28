@@ -165,17 +165,17 @@
     </div>
 
     <div class="product-grid" id="productGrid">
-      <div class="product-card" data-niche="Tech">
+      <div class="product-card" data-niche="Tech" data-region="Global" data-trend="Exploding">
         <img src="https://via.placeholder.com/300x200" alt="Product" />
         <div class="stats">Total Sales: 3,245 | Sellers: 21</div>
         <button class="view-button">View Drop</button>
       </div>
-      <div class="product-card" data-niche="Beauty">
+      <div class="product-card" data-niche="Beauty" data-region="Europe" data-trend="Fast">
         <img src="https://via.placeholder.com/300x200" alt="Product" />
         <div class="stats">Total Sales: 1,942 | Sellers: 14</div>
         <button class="view-button">View Drop</button>
       </div>
-      <div class="product-card" data-niche="Home">
+      <div class="product-card" data-niche="Home" data-region="United States" data-trend="Stable">
         <img src="https://via.placeholder.com/300x200" alt="Product" />
         <div class="stats">Total Sales: 5,873 | Sellers: 36</div>
         <button class="view-button">View Drop</button>
@@ -186,31 +186,44 @@
   <script>
     const searchInput = document.getElementById("searchInput");
     const nicheFilter = document.getElementById("nicheFilter");
+    const regionFilter = document.getElementById("regionFilter");
+    const trendFilter = document.getElementById("trendFilter");
+    const sortFilter = document.getElementById("sortFilter");
     const productGrid = document.getElementById("productGrid");
     const productCards = productGrid.querySelectorAll(".product-card");
 
     function filterProducts() {
       const keyword = searchInput.value.toLowerCase();
       const selectedNiche = nicheFilter.value;
+      const selectedRegion = regionFilter.value;
+      const selectedTrend = trendFilter.value;
 
-      productCards.forEach(card => {
+      let filtered = Array.from(productCards).filter(card => {
         const niche = card.dataset.niche;
-        const matchKeyword = card.textContent.toLowerCase().includes(keyword);
-        const matchNiche = selectedNiche === "Niche" || niche === selectedNiche;
-
-        if (matchKeyword && matchNiche) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
+        const region = card.dataset.region;
+        const trend = card.dataset.trend;
+        const textMatch = card.textContent.toLowerCase().includes(keyword);
+        const nicheMatch = selectedNiche === "Niche" || niche === selectedNiche;
+        const regionMatch = selectedRegion === "Region" || region === selectedRegion;
+        const trendMatch = selectedTrend === "Trend Speed" || trend === selectedTrend;
+        return textMatch && nicheMatch && regionMatch && trendMatch;
       });
+
+      productCards.forEach(card => card.style.display = "none");
+      filtered.forEach(card => card.style.display = "block");
+
+      // Optional sort logic (not implemented yet)
     }
 
     searchInput.addEventListener("input", filterProducts);
     nicheFilter.addEventListener("change", filterProducts);
+    regionFilter.addEventListener("change", filterProducts);
+    trendFilter.addEventListener("change", filterProducts);
+    sortFilter.addEventListener("change", filterProducts); // Sort placeholder
   </script>
 </body>
 </html>
+
 
 
 
