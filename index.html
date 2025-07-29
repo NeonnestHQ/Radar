@@ -4,201 +4,159 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Neonnest Radar Feed</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #3b82f6;
-      --secondary: #7b61ff;
-      --bg: #000;
-      --card-bg: #111;
-      --border: #222;
-      --text: #fff;
-      --muted: #aaa;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      padding: 40px;
-    }
-
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .header h1 {
-      font-size: 32px;
+      background-color: #0d0d0d;
+      font-family: Arial, sans-serif;
       color: white;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    h1 {
+      color: white;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
     }
 
     .search-bar {
-      margin: 16px 0;
-      display: flex;
-      justify-content: center;
+      margin-bottom: 1.5rem;
     }
 
-    .search-bar input {
-      width: 60%;
-      padding: 12px 20px;
-      border-radius: 12px;
+    input[type="text"] {
+      width: 100%;
+      padding: 0.8rem;
+      font-size: 1rem;
       border: none;
-      font-size: 16px;
+      border-radius: 10px;
+      background-color: #1a1a1a;
+      color: white;
     }
 
     .filters {
       display: flex;
+      gap: 1rem;
+      margin: 1.5rem 0;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 32px;
-      justify-content: center;
     }
 
-    .filter-group {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .filter {
+      background-color: #1f1f1f;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 0.95rem;
     }
 
-    .filter-group label {
-      margin-bottom: 6px;
-      font-weight: 600;
-      font-size: 14px;
-    }
-
-    select {
-      padding: 8px 16px;
-      border-radius: 20px;
-      background-color: var(--card-bg);
-      color: white;
-      border: 1px solid var(--border);
+    .filter:hover {
+      background-color: #292929;
     }
 
     .products {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 2rem;
+      margin-top: 2rem;
     }
 
     .product-card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+      background-color: #1a1a1a;
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: transform 0.3s;
     }
 
-    .product-card img {
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-image {
       width: 100%;
       border-radius: 12px;
+      margin-bottom: 1rem;
     }
 
-    .stats {
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    .view-drop {
-      margin-top: auto;
-      background: linear-gradient(135deg, var(--secondary), var(--primary));
-      border: none;
-      padding: 10px;
-      color: white;
+    .product-title {
+      font-size: 1.2rem;
       font-weight: bold;
-      font-size: 14px;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: background 0.3s;
+      margin: 0.5rem 0;
     }
 
-    .view-drop:hover {
-      background: linear-gradient(135deg, #8c73ff, #60a5fa);
+    .product-stats {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      color: #bbb;
+    }
+
+    .view-button {
+      background-color: #292929;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.95rem;
     }
   </style>
 </head>
 <body>
-  <div class="header">
-    <h1>Radar Feed</h1>
-    <div style="font-size: 24px; font-weight: bold; color: white;">NEONNEST</div>
-  </div>
-
+  <h1>Radar Feed</h1>
   <div class="search-bar">
-    <input type="text" placeholder="Search for trending products...">
+    <input type="text" placeholder="Search for products, niches, regions..." />
   </div>
 
   <div class="filters">
-    <div class="filter-group">
-      <label for="newest">Newest</label>
-      <select id="newest">
-        <option value="latest">Latest</option>
-        <option value="popular">Most Popular</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <label for="niche">Niche</label>
-      <select id="niche">
-        <option>All</option>
-        <option>Beauty</option>
-        <option>Fitness</option>
-        <option>Home</option>
-        <option>Pet</option>
-        <option>Tech</option>
-        <option>Fashion</option>
-        <option>Gaming</option>
-        <option>Health</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <label for="region">Region</label>
-      <select id="region">
-        <option>All</option>
-        <option>USA</option>
-        <option>Europe</option>
-        <option>Asia</option>
-        <option>Australia</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <label for="trend-speed">Trend Speed</label>
-      <select id="trend-speed">
-        <option>All</option>
-        <option>Exploding</option>
-        <option>Growing</option>
-        <option>Stable</option>
-      </select>
-    </div>
+    <div class="filter">Newest</div>
+    <div class="filter">Tech</div>
+    <div class="filter">Home</div>
+    <div class="filter">Beauty</div>
+    <div class="filter">Fitness</div>
+    <div class="filter">Fashion</div>
+    <div class="filter">USA</div>
+    <div class="filter">EU</div>
+    <div class="filter">Asia</div>
+    <div class="filter">Fast</div>
+    <div class="filter">Steady</div>
   </div>
 
   <div class="products">
     <div class="product-card">
-      <img src="https://via.placeholder.com/300x200" alt="Product Image">
-      <div class="stats">Sales: 2,300 | Sellers: 21</div>
-      <button class="view-drop" onclick="location.href='drop.html'">View Drop</button>
+      <img src="https://via.placeholder.com/300x180?text=Galaxy+Projector" alt="LED Galaxy Projector" class="product-image" />
+      <div class="product-title">LED Galaxy Projector</div>
+      <div class="product-stats">
+        Hype Score: 92<br />
+        Sellers: 151<br />
+        Total Sales: 7,842
+      </div>
+      <a href="drop-galaxy.html"><button class="view-button">View Drop</button></a>
     </div>
+
     <div class="product-card">
-      <img src="https://via.placeholder.com/300x200" alt="Product Image">
-      <div class="stats">Sales: 1,750 | Sellers: 18</div>
-      <button class="view-drop" onclick="location.href='drop.html'">View Drop</button>
+      <img src="https://via.placeholder.com/300x180?text=Portable+Blender" alt="Portable Blender" class="product-image" />
+      <div class="product-title">Portable Blender</div>
+      <div class="product-stats">
+        Hype Score: 78<br />
+        Sellers: 89<br />
+        Total Sales: 5,233
+      </div>
+      <a href="drop-blender.html"><button class="view-button">View Drop</button></a>
     </div>
+
     <div class="product-card">
-      <img src="https://via.placeholder.com/300x200" alt="Product Image">
-      <div class="stats">Sales: 3,120 | Sellers: 30</div>
-      <button class="view-drop" onclick="location.href='drop.html'">View Drop</button>
+      <img src="https://via.placeholder.com/300x180?text=Wireless+Earbuds" alt="Wireless Earbuds" class="product-image" />
+      <div class="product-title">Wireless Earbuds</div>
+      <div class="product-stats">
+        Hype Score: 84<br />
+        Sellers: 67<br />
+        Total Sales: 6,910
+      </div>
+      <a href="drop-earbuds.html"><button class="view-button">View Drop</button></a>
     </div>
   </div>
 </body>
 </html>
+
 
 
 
