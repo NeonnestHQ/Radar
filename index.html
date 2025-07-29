@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Drop Page - Neonnest Radar</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <title>Neonnest Radar Feed</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #3b82f6;
@@ -13,130 +13,193 @@
       --card-bg: #111;
       --border: #222;
       --text: #fff;
-      --text-muted: #bbb;
+      --muted: #aaa;
     }
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
       font-family: 'Inter', sans-serif;
       background-color: var(--bg);
       color: var(--text);
       padding: 40px;
     }
 
-    .drop-header {
+    .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 32px;
+      margin-bottom: 20px;
     }
 
-    .drop-header h1 {
+    .header h1 {
       font-size: 32px;
       color: white;
     }
 
-    .drop-content {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 40px;
-    }
-
-    .drop-image img {
-      width: 100%;
-      border-radius: 20px;
-    }
-
-    .drop-info {
+    .search-bar {
+      margin: 16px 0;
       display: flex;
-      flex-direction: column;
-      gap: 16px;
+      justify-content: center;
     }
 
-    .stat {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 16px;
-      font-size: 14px;
-    }
-
-    .suppliers {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 16px;
-    }
-
-    .suppliers h3 {
-      margin-top: 0;
-      margin-bottom: 8px;
+    .search-bar input {
+      width: 60%;
+      padding: 12px 20px;
+      border-radius: 12px;
+      border: none;
       font-size: 16px;
     }
 
-    .supplier-item {
-      border-bottom: 1px solid var(--border);
-      padding: 8px 0;
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+      justify-content: center;
     }
 
-    .supplier-item:last-child {
-      border-bottom: none;
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .ad-button {
-      margin-top: 32px;
-      background: linear-gradient(135deg, var(--secondary), var(--primary));
-      color: white;
-      padding: 12px;
-      border: none;
+    .filter-group label {
+      margin-bottom: 6px;
       font-weight: 600;
-      font-size: 15px;
+      font-size: 14px;
+    }
+
+    select {
+      padding: 8px 16px;
+      border-radius: 20px;
+      background-color: var(--card-bg);
+      color: white;
+      border: 1px solid var(--border);
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .product-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .product-card img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .stats {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .view-drop {
+      margin-top: auto;
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      border: none;
+      padding: 10px;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
       border-radius: 12px;
       cursor: pointer;
-      width: fit-content;
       transition: background 0.3s;
     }
 
-    .ad-button:hover {
+    .view-drop:hover {
       background: linear-gradient(135deg, #8c73ff, #60a5fa);
     }
   </style>
 </head>
 <body>
-  <div class="drop-header">
-    <h1>Product Drop</h1>
-    <a href="#" style="color: var(--secondary); text-decoration: none; font-weight: 600;">Back to Radar</a>
+  <div class="header">
+    <h1>Radar Feed</h1>
+    <div style="font-size: 24px; font-weight: bold; color: white;">NEONNEST</div>
   </div>
 
-  <div class="drop-content">
-    <div class="drop-image">
-      <img src="https://via.placeholder.com/600x400" alt="Product Image" />
+  <div class="search-bar">
+    <input type="text" placeholder="Search for trending products...">
+  </div>
+
+  <div class="filters">
+    <div class="filter-group">
+      <label for="newest">Newest</label>
+      <select id="newest">
+        <option value="latest">Latest</option>
+        <option value="popular">Most Popular</option>
+      </select>
     </div>
-    <div class="drop-info">
-      <div class="stat">Total Sales: <strong>4,560</strong></div>
-      <div class="stat">Active Sellers: <strong>37</strong></div>
-      <div class="stat">Trend Speed: <strong>Exploding</strong></div>
-      <div class="stat">Niche: <strong>Beauty</strong></div>
-      <div class="stat">Region: <strong>United States</strong></div>
+    <div class="filter-group">
+      <label for="niche">Niche</label>
+      <select id="niche">
+        <option>All</option>
+        <option>Beauty</option>
+        <option>Fitness</option>
+        <option>Home</option>
+        <option>Pet</option>
+        <option>Tech</option>
+        <option>Fashion</option>
+        <option>Gaming</option>
+        <option>Health</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="region">Region</label>
+      <select id="region">
+        <option>All</option>
+        <option>USA</option>
+        <option>Europe</option>
+        <option>Asia</option>
+        <option>Australia</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="trend-speed">Trend Speed</label>
+      <select id="trend-speed">
+        <option>All</option>
+        <option>Exploding</option>
+        <option>Growing</option>
+        <option>Stable</option>
+      </select>
+    </div>
+  </div>
 
-      <div class="suppliers">
-        <h3>Top 5 Suppliers</h3>
-        <div class="supplier-item">AliExpress - Store A</div>
-        <div class="supplier-item">CJ Dropshipping - Supplier X</div>
-        <div class="supplier-item">Alibaba - Wholesale Y</div>
-        <div class="supplier-item">Zendrop - Fast Z</div>
-        <div class="supplier-item">AutoDS - Reliable Q</div>
-      </div>
-
-      <button class="ad-button">Create AI Ad (Free for Radar users)</button>
+  <div class="products">
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x200" alt="Product Image">
+      <div class="stats">Sales: 2,300 | Sellers: 21</div>
+      <button class="view-drop" onclick="location.href='drop.html'">View Drop</button>
+    </div>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x200" alt="Product Image">
+      <div class="stats">Sales: 1,750 | Sellers: 18</div>
+      <button class="view-drop" onclick="location.href='drop.html'">View Drop</button>
+    </div>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x200" alt="Product Image">
+      <div class="stats">Sales: 3,120 | Sellers: 30</div>
+      <button class="view-drop" onclick="location.href='drop.html'">View Drop</button>
     </div>
   </div>
 </body>
 </html>
+
 
 
 
