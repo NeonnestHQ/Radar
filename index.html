@@ -1,126 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neonnest Radar Feed</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <title>Radar Feed | Neonnest</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
       font-family: 'Inter', sans-serif;
     }
 
     body {
-      background-color: #0e0e11;
+      background-color: #0D0E12;
       color: white;
       display: flex;
     }
 
-    .sidebar {
+    aside {
+      background-color: #111218;
+      padding: 2rem 1.5rem;
       width: 220px;
-      background-color: #15151a;
-      padding: 40px 20px;
       height: 100vh;
     }
 
-    .sidebar h1 {
+    aside h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
       color: white;
-      font-size: 20px;
-      margin-bottom: 40px;
+      margin-bottom: 3rem;
     }
 
-    .sidebar nav a {
+    aside nav a {
       display: block;
-      color: #ccc;
-      margin-bottom: 25px;
+      color: white;
       text-decoration: none;
-      font-weight: 500;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    aside nav a:hover {
+      color: #6366F1;
     }
 
     .main {
-      flex: 1;
-      padding: 40px;
+      flex-grow: 1;
+      padding: 2.5rem 3rem;
     }
 
-    .main h2 {
-      font-size: 28px;
-      color: white;
-      margin-bottom: 20px;
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
     }
 
-    .search-bar {
-      margin-bottom: 20px;
-    }
-
-    .search-bar input {
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      border: none;
-      font-size: 16px;
+    .header h2 {
+      font-size: 2rem;
+      font-weight: 700;
     }
 
     .filters {
       display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 30px;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
     }
 
-    .filter {
-      background-color: #1f1f25;
+    .filters select,
+    .filters input[type="text"] {
+      background-color: #1C1D23;
       color: white;
+      padding: 0.75rem 1rem;
       border: none;
-      padding: 10px 15px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 14px;
+      border-radius: 0.75rem;
+      font-size: 1rem;
     }
 
     .products {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 1.5rem;
     }
 
     .product-card {
-      background-color: #1f1f25;
-      padding: 20px;
-      border-radius: 16px;
+      background-color: #1C1D23;
+      border-radius: 1rem;
+      overflow: hidden;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
     }
 
     .product-card img {
       width: 100%;
-      border-radius: 12px;
-      margin-bottom: 10px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 0.75rem;
+      margin-bottom: 1rem;
     }
 
     .product-card h3 {
-      margin-bottom: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
     }
 
-    .stats p {
-      font-size: 14px;
-      margin: 4px 0;
-      color: #ccc;
+    .stat {
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
     }
 
-    .view-button {
-      background-color: #1a73e8;
+    .bar {
+      height: 6px;
+      background: linear-gradient(to right, #6366F1, #9333EA);
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+
+    .btn {
+      background: #3B82F6;
       color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      margin-top: 10px;
+      padding: 0.75rem;
+      text-align: center;
+      border-radius: 0.75rem;
+      margin-top: auto;
       cursor: pointer;
+      transition: 0.3s;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      background: #2563EB;
     }
   </style>
 </head>
+
 <body>
-  <div class="sidebar">
+  <aside>
     <h1>NEONNEST</h1>
     <nav>
       <a href="#">Radar Feed</a>
@@ -128,53 +149,74 @@
       <a href="#">Find Suppliers</a>
       <a href="#">Settings</a>
     </nav>
-  </div>
+  </aside>
   <div class="main">
-    <h2>Radar Feed</h2>
-    <div class="search-bar">
-      <input type="text" placeholder="Search products..." />
+    <div class="header">
+      <h2>Radar Feed</h2>
+      <select>
+        <option>Newest</option>
+        <option>Trending</option>
+        <option>Most Hyped</option>
+      </select>
     </div>
     <div class="filters">
-      <button class="filter">Newest</button>
-      <button class="filter">Niche</button>
-      <button class="filter">Region</button>
-      <button class="filter">Trend Speed</button>
+      <input type="text" placeholder="Search products...">
+      <select>
+        <option>Niche</option>
+        <option>Home</option>
+        <option>Beauty</option>
+        <option>Fitness</option>
+      </select>
+      <select>
+        <option>Region</option>
+        <option>US</option>
+        <option>EU</option>
+        <option>Global</option>
+      </select>
+      <select>
+        <option>Trend Speed</option>
+        <option>Fast</option>
+        <option>Moderate</option>
+        <option>Slow</option>
+      </select>
     </div>
     <div class="products">
       <div class="product-card">
-        <img src="https://i.imgur.com/0DElr0H.jpg" alt="Galaxy Projector" />
-        <h3>Galaxy Projector</h3>
-        <div class="stats">
-          <p>Hype Level: 92</p>
-          <p>Saturation: 30</p>
-          <p>Growth: High</p>
-        </div>
-        <button class="view-button" onclick="location.href='drop-galaxy.html'">View Drop</button>
+        <img src="https://i.imgur.com/lh0YrZm.jpeg" alt="Insulated Tumbler">
+        <h3>Insulated Tumbler</h3>
+        <div class="stat">Hype Level: 89</div>
+        <div class="bar" style="width: 89%;"></div>
+        <div class="stat">Saturation: 26</div>
+        <div class="bar" style="width: 26%;"></div>
+        <div class="stat">Growth: High</div>
+        <div class="btn">View Drop</div>
       </div>
       <div class="product-card">
-        <img src="https://i.imgur.com/ImnJgJE.jpg" alt="Portable Blender" />
-        <h3>Portable Blender</h3>
-        <div class="stats">
-          <p>Hype Level: 88</p>
-          <p>Saturation: 42</p>
-          <p>Growth: Moderate</p>
-        </div>
-        <button class="view-button" onclick="location.href='drop-blender.html'">View Drop</button>
+        <img src="https://i.imgur.com/dI1bCWA.jpeg" alt="Baby Night Light">
+        <h3>Baby Night Light</h3>
+        <div class="stat">Hype Level: 81</div>
+        <div class="bar" style="width: 81%;"></div>
+        <div class="stat">Saturation: 42</div>
+        <div class="bar" style="width: 42%;"></div>
+        <div class="stat">Growth: Moderate</div>
+        <div class="btn">View Drop</div>
       </div>
       <div class="product-card">
-        <img src="https://i.imgur.com/Nvbh8Ex.jpg" alt="Wireless Earbuds" />
-        <h3>Wireless Earbuds</h3>
-        <div class="stats">
-          <p>Hype Level: 85</p>
-          <p>Saturation: 35</p>
-          <p>Growth: High</p>
-        </div>
-        <button class="view-button" onclick="location.href='drop-earbuds.html'">View Drop</button>
+        <img src="https://i.imgur.com/38x6xRh.jpeg" alt="Car Underglow Lights">
+        <h3>Car Underglow Lights</h3>
+        <div class="stat">Hype Level: 76</div>
+        <div class="bar" style="width: 76%;"></div>
+        <div class="stat">Saturation: 34</div>
+        <div class="bar" style="width: 34%;"></div>
+        <div class="stat">Growth: High</div>
+        <div class="btn">View Drop</div>
       </div>
     </div>
   </div>
 </body>
+
 </html>
+
 
 
 
