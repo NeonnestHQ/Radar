@@ -106,19 +106,18 @@ select {
   border-radius: 12px;
 }
 
-.stats {
+.stat-label {
   font-size: 14px;
   color: var(--muted);
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
-/* Glowing bar styles */
 .stat-bar {
   height: 8px;
   border-radius: 8px;
   background: linear-gradient(90deg, var(--glow1), var(--glow2));
   box-shadow: 0 0 10px var(--glow1), 0 0 20px var(--glow2);
-  margin-top: 4px;
+  margin-bottom: 12px;
 }
 
 .view-drop {
@@ -195,25 +194,32 @@ select {
 <div class="products">
   <div class="product-card">
     <img src="https://via.placeholder.com/300x200" alt="Product Image">
-    <div class="stats">Sales: 2,300 | Sellers: 21</div>
+    <div class="stat-label">Sales</div>
     <div class="stat-bar" style="width: 80%"></div>
+    <div class="stat-label">Sellers</div>
+    <div class="stat-bar" style="width: 60%"></div>
     <button class="view-drop" onclick="location.href='drop.html'">View Drop</button>
   </div>
   <div class="product-card">
     <img src="https://via.placeholder.com/300x200" alt="Product Image">
-    <div class="stats">Sales: 1,750 | Sellers: 18</div>
+    <div class="stat-label">Sales</div>
     <div class="stat-bar" style="width: 65%"></div>
+    <div class="stat-label">Sellers</div>
+    <div class="stat-bar" style="width: 50%"></div>
     <button class="view-drop" onclick="location.href='drop.html'">View Drop</button>
   </div>
   <div class="product-card">
     <img src="https://via.placeholder.com/300x200" alt="Product Image">
-    <div class="stats">Sales: 3,120 | Sellers: 30</div>
+    <div class="stat-label">Sales</div>
     <div class="stat-bar" style="width: 90%"></div>
+    <div class="stat-label">Sellers</div>
+    <div class="stat-bar" style="width: 75%"></div>
     <button class="view-drop" onclick="location.href='drop.html'">View Drop</button>
   </div>
 </div>
 </body>
 </html>
+
 
 
 
