@@ -10,7 +10,7 @@
       --primary: #3b82f6;
       --secondary: #7b61ff;
       --bg: #000;
-      --card-bg: #111111;
+      --card-bg: #111;
       --border: #222;
       --text: #fff;
       --muted: #aaa;
@@ -32,41 +32,45 @@
 
     .drop-container {
       display: flex;
+      flex-direction: row;
       gap: 40px;
-      flex-wrap: wrap;
     }
 
     .video-placeholder {
-      width: 280px;
-      height: 180px;
+      width: 320px;
+      height: 220px;
       background-color: #1a1a1a;
       border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 24px;
+      color: #777;
     }
 
     .drop-info {
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 12px;
     }
 
     .drop-title {
-      font-size: 24px;
-      font-weight: bold;
+      font-size: 28px;
+      font-weight: 700;
     }
 
     .drop-description {
-      font-size: 14px;
+      font-size: 15px;
       color: var(--muted);
+      margin-top: -6px;
     }
 
     .metrics {
       display: flex;
+      flex-direction: row;
       gap: 16px;
-      margin-top: 12px;
+      margin: 16px 0;
     }
 
     .metric-box {
@@ -77,6 +81,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      min-width: 80px;
     }
 
     .metric-title {
@@ -87,6 +92,7 @@
     .metric-value {
       font-size: 18px;
       font-weight: bold;
+      color: var(--text);
     }
 
     .map-placeholder {
@@ -97,25 +103,28 @@
     }
 
     .add-button {
-      margin-top: 12px;
       padding: 12px;
       background: var(--glow);
       color: white;
-      font-weight: bold;
+      font-weight: 600;
       border: none;
       border-radius: 12px;
+      font-size: 14px;
+      text-align: center;
       cursor: pointer;
+      max-width: 300px;
     }
 
     .section-title {
-      font-size: 20px;
-      font-weight: bold;
-      margin: 40px 0 16px;
+      font-size: 18px;
+      font-weight: 600;
+      margin: 48px 0 12px;
       color: var(--primary);
     }
 
     .supplier-table {
       width: 100%;
+      border-collapse: separate;
       border-spacing: 0 10px;
     }
 
@@ -124,21 +133,17 @@
       padding: 12px 16px;
       background-color: var(--card-bg);
       border-radius: 12px;
+      font-size: 14px;
     }
 
     .supplier-table th {
       color: var(--muted);
-      font-size: 14px;
-    }
-
-    .supplier-row {
-      display: table-row;
     }
 
     .actions {
       display: flex;
       gap: 16px;
-      margin-top: 32px;
+      margin-top: 40px;
     }
 
     .action-button {
@@ -148,16 +153,15 @@
       border-radius: 16px;
       font-weight: bold;
       color: white;
-      cursor: pointer;
+      font-size: 14px;
       flex: 1;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
   <div class="drop-container">
-    <div class="video-placeholder">
-      ▶
-    </div>
+    <div class="video-placeholder">▶</div>
     <div class="drop-info">
       <div class="drop-title">LED Galaxy Projector</div>
       <div class="drop-description">Brief trend description</div>
@@ -190,22 +194,22 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="supplier-row">
+      <tr>
         <td>AliExpress</td>
         <td>8–15 days, China</td>
         <td>$17.99</td>
       </tr>
-      <tr class="supplier-row">
+      <tr>
         <td>Supplier B</td>
         <td>5–9 days, United States</td>
         <td>$18.99</td>
       </tr>
-      <tr class="supplier-row">
+      <tr>
         <td>Supplier C</td>
         <td>5–9 days</td>
         <td>$19.99</td>
       </tr>
-      <tr class="supplier-row">
+      <tr>
         <td>Supplier D</td>
         <td>USA</td>
         <td>$21.00</td>
@@ -219,4 +223,3 @@
   </div>
 </body>
 </html>
-
